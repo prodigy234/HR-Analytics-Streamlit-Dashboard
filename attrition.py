@@ -39,9 +39,12 @@ def overview_dashboard(df):
     plot_to_streamlit(fig3)
 
     # Attrition by Job Role
-    fig4, ax4 = plt.subplots(figsize=(10, 6))
+    fig4, ax4 = plt.subplots(figsize=(12, 8))  # Bigger for clarity
     sns.countplot(data=df, y='JobRole', hue='Attrition', palette='viridis', ax=ax4)
     ax4.set_title('Attrition by Job Role')
+    ax4.set_xlabel("Count")
+    ax4.set_ylabel("Job Role")
+    fig4.tight_layout()
     plot_to_streamlit(fig4)
 
     # Age Distribution with Attrition Overlay
@@ -54,17 +57,25 @@ def training_dashboard(df):
     st.subheader("2. Training & Development")
 
     # Training Times vs Attrition
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(10, 6))
     sns.boxplot(data=df, x='Attrition', y='TrainingTimesLastYear', palette='coolwarm', ax=ax)
     ax.set_title('Training Times Last Year vs Attrition')
+    ax.set_xlabel("Attribution")
+    ax.set_ylabel("Training Times Last Year")
+    plt.xticks(rotation=30, ha='right')  # rotate for readability
+    fig.tight_layout()
     plot_to_streamlit(fig)
 
     # Training by Department
-    fig2, ax2 = plt.subplots()
+    fig2, ax2 = plt.subplots(figsize=(10, 6))  # wider plot
     sns.boxplot(data=df, x='Department', y='TrainingTimesLastYear', palette='Set2', ax=ax2)
     ax2.set_title('Training by Department')
-    plt.xticks(rotation=30)
+    ax2.set_xlabel("Department")
+    ax2.set_ylabel("Training Hours Last Year")
+    plt.xticks(rotation=30, ha='right')  # rotate for readability
+    fig2.tight_layout()
     plot_to_streamlit(fig2)
+
 
 def compensation_dashboard(df):
     st.subheader("3. Compensation Analysis")
@@ -117,9 +128,10 @@ def key_drivers_dashboard(df):
     importances = pd.DataFrame({'Feature': X.columns, 'Importance': model.feature_importances_})
     importances = importances.sort_values(by='Importance', ascending=False).head(10)
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(10, 6))
     sns.barplot(data=importances, y='Feature', x='Importance', palette='crest', ax=ax)
     ax.set_title('Top 10 Features Influencing Attrition')
+    fig.tight_layout()
     plot_to_streamlit(fig)
 
     download_button(importances, 'key_attrition_drivers.csv', 'Download Key Drivers Data')
