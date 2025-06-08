@@ -7,6 +7,20 @@ This app helps visualize, analyze, and understand the **patterns behind employee
 
 ---
 
+## 📬 Author
+
+**Gbenga Kajola**
+
+[LinkedIn](https://www.linkedin.com/in/kajolagbenga)
+
+[Certified_Data_Scientist](https://www.datacamp.com/certificate/DSA0012312825030)
+
+[Certified_Data_Analyst](https://www.datacamp.com/certificate/DAA0018583322187)
+
+[Certified_SQL_Database_Programmer](https://www.datacamp.com/certificate/SQA0019722049554)
+
+---
+
 ## 📌 Key Features
 
 ### 📊 Visual Dashboards
@@ -45,9 +59,11 @@ This app helps visualize, analyze, and understand the **patterns behind employee
 ## 🗂 File Overview
 
 ```
-📁 IBM-HR-Attrition-Dashboard/
+📁 IBM HR Attrition Analytics Streamlit Dashboard/
 ├── IBM-HR-Employee-Attrition.csv     # Dataset used
-├── hr_dashboard.py                   # Main Streamlit app script
+├── attrition.py                   # Main Streamlit app script
+├── insights.py                   # Jupyter Notebook
+├── requirements.txt                   # Installation of Dependencies
 ├── README.md                         # Project documentation
 ```
 

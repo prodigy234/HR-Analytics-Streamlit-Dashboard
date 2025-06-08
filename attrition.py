@@ -16,26 +16,38 @@ def plot_to_streamlit(fig):
     fig.savefig(buf, format="png")
     st.image(buf)
 
+
 def overview_dashboard(df):
     st.subheader("1. Attrition Overview")
 
     # Attrition Count
-    fig1, ax1 = plt.subplots()
+    fig1, ax1 = plt.subplots(figsize=(10, 6))  # wider plot
     sns.countplot(data=df, x='Attrition', palette='Set2', ax=ax1)
     ax1.set_title('Overall Attrition Count')
+    ax1.set_xlabel("Attrition")
+    ax1.set_ylabel("Their Count")
+    plt.xticks(rotation=30, ha='right')  # rotate for readability
+    fig1.tight_layout()
     plot_to_streamlit(fig1)
 
-    # Attrition by Department
-    fig2, ax2 = plt.subplots()
+    # Attrition by Department -
+    fig2, ax2 = plt.subplots(figsize=(10, 6))  # wider plot
     sns.countplot(data=df, x='Department', hue='Attrition', palette='Set1', ax=ax2)
     ax2.set_title('Attrition by Department')
-    plt.xticks(rotation=30)
+    ax2.set_xlabel("Department")
+    ax2.set_ylabel("Their Count")
+    plt.xticks(rotation=30, ha='right')  # rotate for readability
+    fig2.tight_layout()
     plot_to_streamlit(fig2)
 
     # Attrition by Gender
-    fig3, ax3 = plt.subplots()
+    fig3, ax3 = plt.subplots(figsize=(10, 6))
     sns.countplot(data=df, x='Gender', hue='Attrition', palette='coolwarm', ax=ax3)
     ax3.set_title('Attrition by Gender')
+    ax3.set_xlabel("Gender")
+    ax3.set_ylabel("Their Count")
+    plt.xticks(rotation=30, ha='right')  # rotate for readability
+    fig3.tight_layout()
     plot_to_streamlit(fig3)
 
     # Attrition by Job Role
@@ -48,10 +60,13 @@ def overview_dashboard(df):
     plot_to_streamlit(fig4)
 
     # Age Distribution with Attrition Overlay
-    fig5, ax5 = plt.subplots()
+    fig5, ax5 = plt.subplots(figsize=(10, 6))  # wider plot
     sns.histplot(data=df, x='Age', hue='Attrition', multiple='stack', bins=20, palette='Set2', ax=ax5)
     ax5.set_title('Age Distribution with Attrition Overlay')
+    plt.xticks(rotation=30, ha='right')  # rotate for readability
+    fig5.tight_layout()
     plot_to_streamlit(fig5)
+
 
 def training_dashboard(df):
     st.subheader("2. Training & Development")
@@ -81,33 +96,71 @@ def compensation_dashboard(df):
     st.subheader("3. Compensation Analysis")
 
     # Monthly Income by Attrition
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(10, 6))  # wider plot
     sns.boxplot(data=df, x='Attrition', y='MonthlyIncome', palette='coolwarm', ax=ax)
     ax.set_title('Monthly Income vs Attrition')
+    ax.set_xlabel("Attrition")
+    ax.set_ylabel("Monthly Income")
+    plt.xticks(rotation=30, ha='right')  # rotate for readability
+    fig.tight_layout()
     plot_to_streamlit(fig)
 
     # Monthly Income by Department
-    fig2, ax2 = plt.subplots()
+    fig2, ax2 = plt.subplots(figsize=(10, 6))  # wider plot
     sns.boxplot(data=df, x='Department', y='MonthlyIncome', palette='Set3', ax=ax2)
     ax2.set_title('Monthly Income by Department')
-    plt.xticks(rotation=30)
+    ax2.set_xlabel("Department")
+    ax2.set_ylabel("Their Monthly Income")
+    plt.xticks(rotation=30, ha='right')  # rotate for readability
+    fig2.tight_layout()
     plot_to_streamlit(fig2)
 
     # PercentSalaryHike by Attrition
-    fig3, ax3 = plt.subplots()
+    fig3, ax3 = plt.subplots(figsize=(10, 6))  # wider plot
     sns.boxplot(data=df, x='Attrition', y='PercentSalaryHike', palette='Set1', ax=ax3)
     ax3.set_title('Percent Salary Hike vs Attrition')
+    ax3.set_xlabel("Attrition")
+    ax3.set_ylabel("Percent Salary Hike")
+    plt.xticks(rotation=30, ha='right')  # rotate for readability
+    fig3.tight_layout()
     plot_to_streamlit(fig3)
 
+# def satisfaction_dashboard(df):
+#     st.subheader("4. Job Satisfaction & Work-Life Balance")
+
+#     metrics = ['JobSatisfaction', 'EnvironmentSatisfaction', 'WorkLifeBalance', 'RelationshipSatisfaction']
+#     for metric in metrics:
+#         fig, ax = plt.subplots(figsize=(10, 6))  # wider plot
+#         sns.boxplot(data=df, x='Attrition', y=metric, palette='Set2', ax=ax)
+#         ax.set_title(f'{metric} vs Attrition')
+#         plt.xticks(rotation=30, ha='right')  # rotate for readability
+#         fig.tight_layout()
+#         plot_to_streamlit(fig)
+
+
+    
 def satisfaction_dashboard(df):
     st.subheader("4. Job Satisfaction & Work-Life Balance")
 
-    metrics = ['JobSatisfaction', 'EnvironmentSatisfaction', 'WorkLifeBalance', 'RelationshipSatisfaction']
-    for metric in metrics:
-        fig, ax = plt.subplots()
+    # Mapping from technical column names to readable labels
+    metric_labels = {
+            'JobSatisfaction': 'Job Satisfaction',
+            'EnvironmentSatisfaction': 'Environment Satisfaction',
+            'WorkLifeBalance': 'Work-Life Balance',
+            'RelationshipSatisfaction': 'Relationship Satisfaction'
+    }
+
+    for metric, label in metric_labels.items():
+        fig, ax = plt.subplots(figsize=(10, 6))
         sns.boxplot(data=df, x='Attrition', y=metric, palette='Set2', ax=ax)
-        ax.set_title(f'{metric} vs Attrition')
+        ax.set_title(f'{label} vs Attrition')
+        ax.set_xlabel("Attrition")
+        ax.set_ylabel(label)
+        plt.xticks(rotation=30, ha='right')
+        fig.tight_layout()
         plot_to_streamlit(fig)
+
+
 
 def key_drivers_dashboard(df):
     st.subheader("5. Key Drivers of Attrition")
@@ -135,6 +188,7 @@ def key_drivers_dashboard(df):
     plot_to_streamlit(fig)
 
     download_button(importances, 'key_attrition_drivers.csv', 'Download Key Drivers Data')
+
 
 def main():
     st.title("IBM HR Employee Attrition Dashboard")
