@@ -62,22 +62,39 @@ This app helps visualize, analyze, and understand the **patterns behind employee
 📁 IBM HR Attrition Analytics Streamlit Dashboard/
 ├── IBM-HR-Employee-Attrition.csv     # Dataset used
 ├── attrition.py                   # Main Streamlit app script
-├── insights.py                   # Jupyter Notebook
+├── insights.ipynb                   # Jupyter Notebook
 ├── requirements.txt                   # Installation of Dependencies
 ├── README.md                         # Project documentation
+
 ```
 
 ---
 
 ## ▶️ How to Run
 
-1. **Install dependencies**:
+
+### 1. **Clone or download the repository**
+
+```bash
+
+git clone https://github.com/prodigy234/HR-Analytics-Streamlit-Dashboard.git
+
+```
+
+### 2. **Install dependencies**:
 
 ```bash
 pip install streamlit pandas matplotlib seaborn scikit-learn
 ```
+OR 
 
-2. **Run the app**:
+```bash
+
+pip install -r requirements.txt
+
+```
+
+### 3. **Run the app**:
 
 ```bash
 streamlit run attrition.py
@@ -99,14 +116,6 @@ streamlit run attrition.py
 - How do salary and training influence resignation?
 - What workplace satisfaction metrics correlate with attrition?
 - What features (age, income, training, etc.) are key attrition drivers?
-
----
-
-## 📬 Author
-
-**Gbenga Kajola**  
-Certified Data Scientist & HR Analytics Practitioner  
-[LinkedIn →](https://www.linkedin.com/in/kajolagbenga)
 
 ---
 
