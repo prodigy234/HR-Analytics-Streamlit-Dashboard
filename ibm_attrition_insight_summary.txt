@@ -1,0 +1,95 @@
+
+IBM HR Employee Attrition Analysis – Insight Summary
+====================================================
+
+This analysis investigates attrition patterns in IBM's workforce using visual dashboards. 
+The dataset contains employee information such as job role, salary, age, department, and satisfaction metrics. 
+Below is a summary of the insights uncovered through the app’s visualizations and data analysis:
+
+1. Attrition Overview
+----------------------
+
+Overall Attrition:
+- Count Analysis shows that the majority of employees have not left the organization.
+- A significant minority did leave, indicating areas for possible intervention.
+
+Attrition by Department:
+- Sales Department had the highest count of attrition.
+- Research & Development has more employees but a relatively lower attrition rate.
+- Human Resources shows a relatively higher proportion of attrition, though the department size is smaller.
+
+Attrition by Gender:
+- Males and females both experience attrition.
+- Slightly more males have left compared to females in absolute terms.
+
+Attrition by Job Role:
+- Sales Executives and Laboratory Technicians experience the highest attrition.
+- Manufacturing Directors and Research Directors have the lowest attrition, suggesting more job stability.
+
+Age Distribution with Attrition:
+- Younger employees (30-35 years) show higher attrition.
+- Attrition decreases with increasing age, indicating longer retention in older employees.
+
+2. Training & Development
+--------------------------
+
+Training Times vs Attrition:
+- Employees who left the company typically received less training in the last year.
+- This suggests training opportunities could help improve retention.
+
+Training by Department:
+- Training hours are fairly evenly distributed across departments.
+- R&D appears to receive slightly more training, followed by HR and Sales.
+
+3. Compensation Analysis
+-------------------------
+
+Monthly Income vs Attrition:
+- Employees who left generally had lower monthly incomes.
+- This indicates that higher pay correlates with better retention.
+
+Monthly Income by Department:
+- R&D employees earn more on average than other departments.
+- Sales has a wider income spread, suggesting compensation variability.
+
+Percent Salary Hike vs Attrition:
+- Surprisingly, attrition is not significantly lower among employees with higher salary hikes.
+- Raises alone may not be a strong retention factor.
+
+4. Job Satisfaction & Work-Life Balance
+----------------------------------------
+
+Across all satisfaction metrics:
+- Employees with lower scores in Job Satisfaction, Environment Satisfaction, and Work-Life Balance are more likely to leave.
+- Higher satisfaction scores correlate with lower attrition.
+
+Key Satisfaction Metrics:
+- Job Satisfaction: Lower among those who left.
+- Environment Satisfaction: Dissatisfaction linked with attrition.
+- Work-Life Balance: Better balance helps retention.
+- Relationship Satisfaction: Poor relationships with colleagues/supervisors may influence departure.
+
+5. Key Drivers of Attrition (Random Forest Model)
+--------------------------------------------------
+
+I used machine learning model (Random Forest Classifier) was used to identify key features influencing attrition.
+
+Top 10 Features Influencing Attrition:
+
+| Rank | Feature                    | Importance Score |
+|------|----------------------------|------------------|
+| 1    | Monthly Income             | 0.0805           |
+| 2    | Age                        | 0.0635           |
+| 3    | Daily Rate                 | 0.0574           |
+| 4    | OverTime                   | 0.0557           |
+| 5    | Total Working Years        | 0.0539           |
+| 6    | Monthly Rate               | 0.0513           |
+| 7    | Hourly Rate                | 0.0502           |
+| 8    | Distance From Home         | 0.0486           |
+| 9    | Years at Company           | 0.0394           |
+| 10   | Number of Companies Worked | 0.0356           |
+
+Interpretation:
+- Compensation (Monthly/Hourly/Daily Rate) and Age are the most influential.
+- Working overtime and distance from home strongly affect attrition.
+- Employees who have switched multiple companies before are more prone to leave.
