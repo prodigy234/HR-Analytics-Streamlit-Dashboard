@@ -66,6 +66,7 @@ This HR Attrition Analytics Dashboard which I built for IBM can be accessed live
 ├── IBM-HR-Employee-Attrition.csv     # Dataset used
 ├── attrition.py                   # Main Streamlit app script
 ├── insights.ipynb                   # Jupyter Notebook
+├── my_image.jpg                       # My image
 ├── requirements.txt                   # Installation of Dependencies
 ├── README.md                         # Project documentation
 
