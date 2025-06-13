@@ -7,7 +7,8 @@ This app helps visualize, analyze, and understand the **patterns behind employee
 
 ---
 
-This HR Attrition Analytics Dashboard which I built for IBM can be accessed live on streamlit [Here](https://ibm-hr-attrition-analytics.streamlit.app/)
+This HR Attrition Analytics Dashboard which I built for IBM can be accessed live on streamlit [Here](https://ibmhrdashboard.streamlit.app/)
+
 ---
 
 ## 📬 Author
